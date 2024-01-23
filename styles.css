@@ -1,0 +1,61 @@
+/* styles.css */
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+textarea#inputText {
+  width: 50%;
+  height: 60px;
+}
+
+.output-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.output-field {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copy-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.output-field h2 {
+  margin-bottom: 5px;
+}
+
+div {
+  margin-top: 0.45rem;
+}
+
+.take-action {
+  margin-top: 0.45rem;
+  border: 0px;
+  border-radius: 5px;
+  background-color: orange;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.1rem 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.take-action:active {
+  background-color: black;
+}
