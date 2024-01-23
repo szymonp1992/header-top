@@ -1,0 +1,4513 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header Top creator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Header Top creator</h1>
+
+    <div>
+      <label for="apiKey">Klucz API ChatGPT:</label>
+      <input type="text" id="apiKey" />
+    </div>
+
+    <textarea id="inputText" placeholder="Wprowadź tekst..."></textarea>
+
+    <div>
+      <h3>Wybierz języki:</h3>
+      <label>
+        <input type="checkbox" id="translatePolish" checked /> Polski
+      </label>
+      <label>
+        <input type="checkbox" id="translateCzech" checked /> Czeski
+      </label>
+      <label>
+        <input type="checkbox" id="translateRomanian" checked /> Rumuński
+      </label>
+      <label>
+        <input type="checkbox" id="translateSlovak" checked /> Słowacki
+      </label>
+      <label>
+        <input type="checkbox" id="translateSlovenian" checked /> Słoweński
+      </label>
+      <label>
+        <input type="checkbox" id="translateHungarian" checked /> Węgierski
+      </label>
+      <label>
+        <input type="checkbox" id="translateLithuanian" checked /> Litewski
+      </label>
+      <label>
+        <input type="checkbox" id="translateGerman" checked /> Niemiecki
+      </label>
+      <label>
+        <input type="checkbox" id="translateCroatian" checked /> Chorwacki
+      </label>
+      <label>
+        <input type="checkbox" id="translateBulgarian" checked /> Bułgarski
+      </label>
+    </div>
+
+    
+
+    <div>
+      <h3>Url do promocji <span style="font-size: 0.75rem; font-weight: normal">(tylko wyrózniona na pomarańczowo część: https://8a.pl/<span style="text-decoration: underline; color: orange">link-do-promki</span>)</span></h3>
+      <label
+        >Url: <input type="text" id="promoUrl" value="link-do-promki"
+      /></label>
+    </div>
+
+    <div>
+      <h3>Z odliczaniem?</h3>
+      <label>
+        <input name="counter" type="radio" id="counterVisible" /> Tak
+      </label>
+      <label>
+        <input name="counter" type="radio" id="counterNotVisible" checked /> Nie
+      </label>
+    </div>
+    <div>
+    <div>
+      <h3>Odliczanie do:</h3>
+      <label
+        >RRRR-MM-DD <input type="text" id="dateYearMonthDay" value="2024-12-31"
+      /></label>
+      <label
+        >Godzina: <input type="text" id="dateHoursMinutes" value="23:59"
+      /></label>
+    </div>
+    <div>
+      <h3>Kolory:</h3>
+      <div>
+        <label
+          >Kolor paska <input type="text" id="headerBgColor" value="#000000" />
+          <span style="font-size: 10px"
+            >(w formacie #34FF00 (domyślnie - czarny - #000000))</span
+          ></label
+        >
+      </div>
+      <div>
+        <label
+          >Kolor fontu <input type="text" id="fontColor" value="#FFFFFF" /><span
+            style="font-size: 10px"
+          >
+            (w formacie #34FF00 (domyślnie - biały - #FFFFFF))</span
+          ></label
+        >
+      </div>
+    </div>
+
+    <button id="translateButton" class="take-action">Tłumacz</button>
+    <button id="backToDefault" class="take-action">
+      Przywróć domyślne Headery z zapisem na newsletter
+    </button>
+
+    <div class="output-container">
+      <div class="output-field">
+        <h2>Polski</h2>
+        <button class="copy-button" data-target="outputPolish">Kopiuj</button>
+        <textarea id="outputPolish" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Czeski</h2>
+        <button class="copy-button" data-target="outputCzech">Kopiuj</button>
+        <textarea id="outputCzech" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Rumuński</h2>
+        <button class="copy-button" data-target="outputRomanian">Kopiuj</button>
+        <textarea id="outputRomanian" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Słowacki</h2>
+        <button class="copy-button" data-target="outputSlovak">Kopiuj</button>
+        <textarea id="outputSlovak" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Słoweński</h2>
+        <button class="copy-button" data-target="outputSlovenian">
+          Kopiuj
+        </button>
+        <textarea id="outputSlovenian" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Węgierski</h2>
+        <button class="copy-button" data-target="outputHungarian">
+          Kopiuj
+        </button>
+        <textarea id="outputHungarian" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Litewski</h2>
+        <button class="copy-button" data-target="outputLithuanian">
+          Kopiuj
+        </button>
+        <textarea id="outputLithuanian" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Niemiecki</h2>
+        <button class="copy-button" data-target="outputGerman">Kopiuj</button>
+        <textarea id="outputGerman" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Chorwacki</h2>
+        <button class="copy-button" data-target="outputCroatian">Kopiuj</button>
+        <textarea id="outputCroatian" readonly></textarea>
+      </div>
+      <div class="output-field">
+        <h2>Bułgarski</h2>
+        <button class="copy-button" data-target="outputBulgarian">
+          Kopiuj
+        </button>
+        <textarea id="outputBulgarian" readonly></textarea>
+      </div>
+    </div>
+
+    <script>
+      const translateButton = document.getElementById("translateButton");
+      const backToDefaultButton = document.getElementById("backToDefault");
+      const outputFields = document.querySelectorAll(
+        ".output-container textarea"
+      );
+      const languages = [
+          {
+            id: "polski",
+            checkboxId: "translatePolish",
+            label: "Polski",
+          },
+          {
+            id: "czeski",
+            checkboxId: "translateCzech",
+            label: "Czeski",
+          },
+          {
+            id: "rumuński",
+            checkboxId: "translateRomanian",
+            label: "Rumuński",
+          },
+          {
+            id: "słowacki",
+            checkboxId: "translateSlovak",
+            label: "Słowacki",
+          },
+          {
+            id: "słoweński",
+            checkboxId: "translateSlovenian",
+            label: "Słoweński",
+          },
+          {
+            id: "węgierski",
+            checkboxId: "translateHungarian",
+            label: "Węgierski",
+          },
+          {
+            id: "litewski",
+            checkboxId: "translateLithuanian",
+            label: "Litewski",
+          },
+          {
+            id: "niemiecki",
+            checkboxId: "translateGerman",
+            label: "Niemiecki",
+          },
+          {
+            id: "chorwacki",
+            checkboxId: "translateCroatian",
+            label: "Chorwacki",
+          },
+          {
+            id: "bułgarski",
+            checkboxId: "translateBulgarian",
+            label: "Bułgarski",
+          },
+        ];
+
+      backToDefaultButton.addEventListener("click", () => {
+
+        const selectedLanguages = languages.filter((language) => {
+          const checkbox = document.getElementById(language.checkboxId);
+          return checkbox.checked;
+        });
+
+        for (const language of selectedLanguages) {
+            const outputField =
+              outputFields[
+                languages.findIndex((lang) => lang.id === language.id)
+              ];
+              if (language.id === "polski") {
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center">
+      <a
+        href="https://8a.pl/zapis-newsletter"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 12px"
+          > 50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >>
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<div class="layout-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/cms-ekologiczny-sklep-outdoor" target="_self"
+        ><img
+          src="{{media url=eko-sklep.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="8a dla planety"
+        />8A DLA PLANETY</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/chce-dokonac-zwrotu/" target="_self"
+        ><img
+          src="{{media url=zwroty-30-dni.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="100-dniowe prawo zwrotu"
+        />100 DNI NA ZWROT</a
+      >
+    </li>
+        <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/jaki-jest-czas-realizacji-zamowienia/" target="_self"
+        ><img
+          src="{{media url=clock.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Wysyłka w 24h"
+        />WYSYŁKA W 24H</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/jaki-jest-koszt-wysylki/" target="_self"
+        ><img
+          src="{{media url=dostawa-darmowa.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Darmowa dostawa od 299 zł"
+        />DARMOWA DOSTAWA OD 299 ZŁ</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/8academy/" target="_self"
+        ><img
+          src="{{media url=blog-8academy.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Górski blog 8academy"
+        />GÓRSKI BLOG 8ACADEMY</a
+      >
+    </li>
+	<li style="margin: 0 auto">
+      <a href="https://8a.pl/faq" target="_self"
+        ><img
+          src="{{media url=pomoc-i-kontakt.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="FAQ"
+        />FAQ</a
+      >
+    </li>
+  </ul>
+</div>
+
+
+
+
+<style>
+  .header-newsletter-message:hover {
+    color: #b8b8b8;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 187px;
+    }
+  }
+
+</styl`+`e>`
+            }
+            if (language.id === "czeski"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.cz/odebirat-novinky"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold"
+          >ZÍSKEJTE SLEVOVÝ KUPÓN -250 KČ >> 
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+	<li style="flex-grow: 0">
+        <a href="/cms-8a-pro-planetu" target="_self" style="font-weight: bold; color: white">
+            <img src="{{media url=eco-leaf.png}}" alt="8A PRO PLANETU"
+                style="height: 1rem; margin-right: 0.5rem" />
+            8A PRO PLANETU</a>
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.cz/faq/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=message-white.png}}"
+          alt="Pomoc"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+         POMOC</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.cz/faq/chci-vratit-zbozi/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14-ti denní lhůta na vrácení zboží"
+        />
+         14 DNŮ NA VRÁCENÍ ZBOŽÍ</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.cz/faq/jaka-je-cena-doruceni/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Doprava zdarma od 1000 Kč"
+        /> DOPRAVA ZDARMA OD 1000 KČ</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.cz/faq/jaka-je-doba-odeslani-objednavky/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >  <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychlé dodání"
+        />
+         RYCHLÉ DODÁNÍ</a
+      >
+    </li>
+    <li>
+      <a href="tel:+420381601400" style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Zavolejte nám"
+        />
+         +420 381 601 400</a
+      >
+    </li> 
+  </ul>
+</div>
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+</styl`+`e>`
+            }
+            if (language.id === "rumuński"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.ro/newsletter-ro"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold"
+          >ÎPRIMIȚI UN COD DE REDUCERE -50 LEI >>
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+  <ul style="display: flex; justify-content: space-between">
+
+    <li style="flex-grow: 0">
+        <a href="/cms-8a-pentru-planeta" target="_self" style="font-weight: bold; color: white">
+            <img src="{{media url=eco-leaf.png}}" alt="8A PENTRU PLANETĂ"
+                style="height: 1rem; margin-right: 0.5rem" />
+            8A PENTRU PLANETĂ</a>
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.ro/faq"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=message-white.png}}"
+          alt="Ajutor și contact"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        AJUTOR</a
+      >
+    </li>
+    
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.ro/faq/vreau-sa-fac-un-retur"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14 zile pentru returnare"
+        />
+        14 ZILE RETUR</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.ro/faq/care-este-costul-transportului/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Transport gratuit"
+        />
+        TRANSPORT GRATUIT PESTE 250 LEI</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.ro/faq/care-este-termenul-de-livrare/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Expediere rapidă"
+        />
+        EXPEDIERE RAPIDĂ</a
+      >
+    </li>
+    <li>
+      <a href="tel:+40371701420" style="font-weight: bold; color: white">
+        <img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Sunați-ne"
+        />
+        +40 37 170 1420
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+<style>
+  @media (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+</styl`+`e>`
+            }
+            if (language.id === "słowacki"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.sk/newsletter-sk"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold"
+          >ZÍSKAJTE ZĽAVOVÝ KUPÓN -10 € >>
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.sk/cms-8a-pre-nasu-planetu"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=eco-leaf.png}}"
+          alt="8a pre planetu"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        8A PRE PLANÉTU</a
+      >
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.sk/faq"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=message-white.png}}"
+          alt="Pomoc a kontakt"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        POMOC</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.sk/faq/chcem-vratit-tovar/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Pravo 14-dni na vratenie tovaru"
+        />
+        14-DŇOVÉ VRÁTENIE TOVARU</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.sk/faq/ake-su-naklady-na-dopravu/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Dorucenie zdarmo od 50 €"
+        />
+        DORUČENIE ZADARMO OD 50 €</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.sk/faq/aka-je-dodacia-lehota/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychle dorucenie"
+        />
+        RÝCHLE DORUČENIE</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a href="tel:+421412304433" style="font-weight: bold; color: white">
+        <img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Zavolajte nám"
+        />
+        +421 41/ 230 44 33
+      </a>
+    </li>
+  </ul>
+</div>
+<style>
+  @media (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+  
+</styl`+`e>`
+            }
+            if (language.id === "słoweński"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.si/spletne-novice"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold"
+          >PRIDOBITE KUPON ZA POPUST -10 € >>
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+  <ul style="display: flex; justify-content: space-between">
+	  <li style="flex-grow: 0">
+      <a
+        href="https://8a.si/cms-8a-za-planet"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=eco-leaf.png}}"
+          alt="8a za planet"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        8A ZA PLANET</a
+      >
+    </li>
+      <li style="flex-grow: 0">
+          <a href="https://8a.si/faq" target="_self" style="font-weight: bold; color: white">
+              <img src="{{media url=message-white.png}}" alt="Pomoc in kontakt"
+                  style="height: 1rem; margin-right: 0.5rem" />
+                  POMOČ IN KONTAKT</a>
+      </li>
+      <li class="unique-selling-point">
+          <a href="https://8a.si/faq/vracilo-in-zamenjava" target="_self" style="font-weight: bold; color: white">
+
+              <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                  alt="14-dnevni rok za vracilo" />
+                  14-DNEVNI ROK ZA VRAČILO</a>
+      </li>
+      <li class="unique-selling-point">
+          <a href="https://8a.si/faq/posiljanje-in-dostava" target="_self" style="font-weight: bold; color: white">
+              <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                  alt="Brezplacna dostava" />
+                  BREZPLAČNA DOSTAVA OD 25 €</a>
+      </li>
+      <li class="unique-selling-point">
+          <a href="https://8a.si/faq/kaksen-je-cas-izvedbe-narocila/ " target="_self"
+              style="font-weight: bold; color: white">
+              <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                  alt="Hitra dostava" />
+                  HITRA DOSTAVA</a>
+      </li>
+  </ul>
+</div>
+<style>
+    @media (max-width: 768px) {
+        .hide-if-mobile {
+            display: none;
+        }
+    }
+
+    .header-top .hide-portrait {
+        background-color: black;
+    }
+
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+</styl`+`e>`
+            }
+            if (language.id === "węgierski"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.hu/hirlevel"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase;"
+          >VÁSÁROLJON 3 500 FT KEDVEZMÉNYKÓDDAL! >> 
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.hu/faq/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=message-white.png}}"
+          alt="Pomoc"
+          style="height: 1rem; margin-right: 0.5rem"
+        /> SÚGÓ ÉS KAPCSOLATFELVÉTEL</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/szeretnek-visszakuldeni-egy-termeket"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14-ti denní lhůta na vrácení zboží"
+        /> 14 NAPOS VISSZAKÜLDÉSI LEHETŐSÉG</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/mennyibe-kerul-a-csomagkuldes"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Doprava zdarma od 1000 Kč"
+        /> INGYEN HÁZHOZSZÁLLÍTÁS 19 900 FT FELETT</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/mennyi-a-megrendeles-teljesitesenek-atfutasi-ideje"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >  <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychlé dodání"
+        />
+         GYORS HÁZHOZSZÁLLÍTÁS</a
+      >
+    </li>
+  </ul>
+</div>
+
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+</styl`+`e>`
+            }
+            if (language.id === "litewski"){
+              outputField.value = `<!-- W LINII 4. WSTAW POŻĄDANY KOLOR PASKA PROMO W FORMACIE #e3561f -->
+<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #ef5f1a; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+    <!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+      <a
+        href="https://8a-shop.lt/naujienlaiskis"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase;"
+          >
+          <!-- W LINII PONIŻEJ WSTAW TREŚĆ DO WYŚWIETLENIA NA PASKU PROMO -->
+          Gaukite 10 € nuolaidos kodą >> 
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a-shop.lt/cms-8a-planetai"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=eco-leaf.png}}"
+          alt="8a planetos labui"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        8A PLANETOS LABUI</a
+      >
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a-shop.lt/faq"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=message-white.png}}"
+          alt="PAGALBA IR KONTAKTAI"
+          style="height: 1rem; margin-right: 0.5rem"
+        /> PAGALBA IR KONTAKTAI</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a-shop.lt/faq/noriu-grazinti/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14 DIENŲ GRĄŽINIMUI"
+        /> 14 DIENŲ GRĄŽINIMUI</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a-shop.lt/faq/kokia-yra-siuntimo-kaina/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="NEMOKAMAS PRISTATYMAS NUO 49 €"
+        /> NEMOKAMAS PRISTATYMAS NUO 49 €</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a-shop.lt/faq/koks-yra-uzsakymo-vykdymo-laikas/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >  <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychlé dodání"
+        />
+         GREITAS PRISTATYMAS</a
+      >
+    </li>
+  </ul>
+</div>
+
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+</styl`+`e>`
+            }
+            if (language.id === "niemiecki"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+	  <a
+        href="https://8a.de/newsletter-de"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+		  <!-- W LINII PONIŻEJ WSTAW TREŚĆ DO WYŚWIETLENIA NA PASKU PROMO -->
+		  Sichere Dir 10 € Rabattcode >> 
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+    <ul style="display: flex; justify-content: space-between">
+        <li style="flex-grow: 0">
+            <a href="/okologie-bei-8a" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=eco-leaf.png}}" alt="ÖKOLOGIE BEI 8A"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                ÖKOLOGIE BEI 8A</a>
+        </li>
+        <li style="flex-grow: 0">
+            <a href="/faq" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=message-white.png}}" alt="FAQ & HILFE"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                FAQ & HILFE</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/kann-ich-die-ware-zuruckgeben-wenn-sie-mir-nicht-gefallt-oder-nicht-passt/" target="_self" style="font-weight: bold; color: white">
+
+                <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="100 TAGE KOSTENLOSE RETOURE" />
+                100 TAGE KOSTENLOSE RETOURE</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="https://8a.de/faq/wie-viel-kostet-der-versand/" target="_self"
+                style="font-weight: bold; color: white">
+                <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="PORTOFREI AB € 50" />
+                PORTOFREI AB € 50</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/wann-wird-meine-bestellung-versandt/" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="SCHNELLER VERSAND" />
+                SCHNELLER VERSAND</a>
+        </li>
+        <li>
+      <a href="tel:+4978195633036" style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rufen Sie unseren Kundenservice an"
+        />
+         +49 781 9563 30 36</a
+      >
+    </li> 
+    </ul>
+</div>
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+</styl`+`e>`
+            }
+            if (language.id === "chorwacki"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+	  <a
+        href="https://8a-shop.hr/newsletter-hr"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+		  <!-- W LINII PONIŻEJ WSTAW TREŚĆ DO WYŚWIETLENIA NA PASKU PROMO -->
+		  ČEKA TE KOD ZA 10 € – PREUZMI GA OVDJE >>
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+    <ul style="display: flex; justify-content: space-between">
+        <li style="flex-grow: 0">
+            <a href="/cms-ekoloska-outdoor-trgovina" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=eco-leaf.png}}" alt="EKOLOŠKA OUTDOOR TRGOVINA"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                EKOLOŠKA OUTDOOR TRGOVINA</a>
+        </li>
+        <li style="flex-grow: 0">
+            <a href="/faq" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=message-white.png}}" alt="POMOĆ I KONTAKT"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                POMOĆ I KONTAKT</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/mogu-li-vratiti-proizvod-ako-mi-se-ne-svidja-ili-mi-ne-odgovara/" target="_self" style="font-weight: bold; color: white">
+
+                <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt=" 14 DANA ZA POVRAT" />
+                 14 DANA ZA POVRAT</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/koliki-je-trosak-dostave/" target="_self"
+                style="font-weight: bold; color: white">
+                <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="BESPLATNA DOSTAVA OD 50 €" />
+                BESPLATNA DOSTAVA OD 50 €</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/kada-ce-moja-narudzba-biti-poslana/" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="BRZA DOSTAVA" />
+                BRZA DOSTAVA</a>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+</styl`+`e>`
+            }
+            if (language.id === "bułgarski"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+	  <a
+        href="https://8a.bg/byuletin"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+		  <!-- W LINII PONIŻEJ WSTAW TREŚĆ DO WYŚWIETLENIA NA PASKU PROMO -->
+		  ЧАКА ТЕ КОД ЗА 20 ЛВ. - ВЗЕМИ ГО ТУК >>
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+    <ul style="display: flex; justify-content: space-between">
+        <li style="flex-grow: 0">
+            <a href="/cms-ekologichen-magazin-za-vanshni-deynosti" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=eco-leaf.png}}" alt="ЕКО МАГАЗИН ЗА СПОРТ И ПРИРОДА"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                ЕКО МАГАЗИН ЗА СПОРТ И ПРИРОДА</a>
+        </li>
+        <li style="flex-grow: 0">
+            <a href="/faq" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=message-white.png}}" alt="ПОМОЩ И КОНТАКТ"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                ПОМОЩ И КОНТАКТ</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/moga-li-da-varna-stoki-ako-ne-mi-haresvat-ili-ne-mi-pasvat/" target="_self" style="font-weight: bold; color: white">
+
+                <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt=" 14 ДНИ ПРАВО НА ВРЪЩАНЕ" />
+                 14 ДНИ ПРАВО НА ВРЪЩАНЕ</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/kakvi-sa-razhodite-za-izprashtane-na-porachka/" target="_self"
+                style="font-weight: bold; color: white">
+                <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="БЕЗПЛАТНА ДОСТАВКА НАД 99 лв" />
+                БЕЗПЛАТНА ДОСТАВКА НАД 99 лв.</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/koga-shte-bade-izpratena-moyata-porachka/" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="БЪРЗА ДОСТАВКА" />
+                БЪРЗА ДОСТАВКА</a>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+</styl`+`e>`
+            }
+            }
+            
+            
+      })
+
+      translateButton.addEventListener("click", async () => {
+        
+        const apiKey = document.getElementById("apiKey").value;
+        if (!apiKey) {
+          alert("Wprowadź poprawny klucz API.");
+          return;
+        }
+
+        const inputText = document.getElementById("inputText").value;
+
+        const selectedLanguages = languages.filter((language) => {
+          const checkbox = document.getElementById(language.checkboxId);
+          return checkbox.checked;
+        });
+
+        const counterVisible = document.querySelector("#counterVisible").checked;
+        const counterDate = document.querySelector("#dateYearMonthDay").value;
+        const counterHour = document.querySelector("#dateHoursMinutes").value;
+        const promoUrl = document.querySelector("#promoUrl").value;
+        const headerBgColor = document.querySelector("#headerBgColor").value;
+        const fontColor = document.querySelector("#fontColor").value;
+
+        // Jezeli counter ma byc widoczny:
+
+        if (counterVisible === true) {
+          for (const language of selectedLanguages) {
+            const outputField =
+              outputFields[
+                languages.findIndex((lang) => lang.id === language.id)
+              ];
+            if (language.id === "polski") {
+              outputField.value =
+                `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center">
+      <a
+        href="https://8a.pl/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 12px; text-transform: uppercase"
+          >
+          ${inputText}
+        </span>
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>D</p>
+        <div id="hours">00</div>
+        <p>G</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>S</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<div class="layout-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/cms-ekologiczny-sklep-outdoor" target="_self"
+        ><img
+          src="{{media url=eko-sklep.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="8a dla planety"
+        />8A DLA PLANETY</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/chce-dokonac-zwrotu/" target="_self"
+        ><img
+          src="{{media url=zwroty-30-dni.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="100-dniowe prawo zwrotu"
+        />100-DNI NA ZWROT</a
+      >
+    </li>
+        <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/jaki-jest-czas-realizacji-zamowienia/" target="_self"
+        ><img
+          src="{{media url=clock.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Wysyłka w 24h"
+        />WYSYŁKA W 24H</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/jaki-jest-koszt-wysylki/" target="_self"
+        ><img
+          src="{{media url=dostawa-darmowa.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Darmowa dostawa od 299 zł"
+        />DARMOWA DOSTAWA OD 299 ZŁ</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/8academy/" target="_self"
+        ><img
+          src="{{media url=blog-8academy.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Górski blog 8academy"
+        />GÓRSKI BLOG 8ACADEMY</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq" target="_self"
+        ><img
+          src="{{media url=pomoc-i-kontakt.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="FAQ"
+        />FAQ</a
+      >
+    </li>
+  </ul>
+</div>
+
+
+
+
+<style>
+  .header-newsletter-message:hover {
+    color: #b8b8b8;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 187px;
+    }
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  #countdown div {
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.pl/zapis-newsletter" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px">50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >></span></a>';
+    }
+  }, 1000);
+</scrip` + `t>`;
+            } else {
+              let prompt = `Tłumacz na język ${language.label}:`;
+
+              let translation = await translateText(
+                inputText,
+                prompt,
+                language.id,
+                apiKey
+              );
+              if (language.label === "Czeski") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.cz/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </span>
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>D</p>
+        <div id="hours">00</div>
+        <p>H</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>S</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+	<li style="flex-grow: 0">
+        <a href="/cms-8a-pro-planetu" target="_self" style="font-weight: bold; color: white">
+            <img src="{{media url=eco-leaf.png}}" alt="8A PRO PLANETU"
+                style="height: 1rem; margin-right: 0.5rem" />
+            8A PRO PLANETU</a>
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.cz/faq/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=message-white.png}}"
+          alt="Pomoc"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+         POMOC</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.cz/faq/chci-vratit-zbozi/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14-ti denní lhůta na vrácení zboží"
+        />
+         14 DNŮ NA VRÁCENÍ ZBOŽÍ</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.cz/faq/jaka-je-cena-doruceni/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Doprava zdarma od 1000 Kč"
+        /> DOPRAVA ZDARMA OD 1000 KČ</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.cz/faq/jaka-je-doba-odeslani-objednavky/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >  <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychlé dodání"
+        />
+         RYCHLÉ DODÁNÍ</a
+      >
+    </li>
+    <li>
+      <a href="tel:+420381601400" style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Zavolejte nám"
+        />
+         +420 381 601 400</a
+      >
+    </li> 
+  </ul>
+</div>
+
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.cz/odebirat-novinky" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold; text-transform: uppercase">PŘIHLASTE SE K ODBĚRU NOVINEK A ZÍSKEJTE SLEVOVÝ KUPÓN -250 KČ >></span></a>';
+    }
+  }, 1000);
+</scrip` + `t>`;
+              } else if (language.label === "Rumuński") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.ro/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>Z</p>
+        <div id="hours">00</div>
+        <p>O</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>S</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+  <ul style="display: flex; justify-content: space-between">
+
+    <li style="flex-grow: 0">
+        <a href="/cms-8a-pentru-planeta" target="_self" style="font-weight: bold; color: white">
+            <img src="{{media url=eco-leaf.png}}" alt="8A PENTRU PLANETĂ"
+                style="height: 1rem; margin-right: 0.5rem" />
+            8A PENTRU PLANETĂ</a>
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.ro/faq"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=message-white.png}}"
+          alt="Ajutor și contact"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        AJUTOR</a
+      >
+    </li>
+    
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.ro/faq/vreau-sa-fac-un-retur"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14 zile pentru returnare"
+        />
+        14 ZILE RETUR</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.ro/faq/care-este-costul-transportului/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Transport gratuit"
+        />
+        TRANSPORT GRATUIT PESTE 250 LEI</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.ro/faq/care-este-termenul-de-livrare/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Expediere rapidă"
+        />
+        EXPEDIERE RAPIDĂ</a
+      >
+    </li>
+    <li>
+      <a href="tel:+40371701420" style="font-weight: bold; color: white">
+        <img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Sunați-ne"
+        />
+        +40 37 170 1420
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+<style>
+  @media (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+            document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.ro/newsletter-ro" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ÎNSCRIEȚI-VĂ LA NEWSLETTER ȘI PRIMIȚI UN VOUCHER DE REDUCERE -50 LEI >></span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              } else if (language.label === "Słowacki") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.sk/${promoUrl}"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+      ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>D</p>
+        <div id="hours">00</div>
+        <p>H</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>S</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.sk/cms-8a-pre-nasu-planetu"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=eco-leaf.png}}"
+          alt="8a pre planetu"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        8A PRE PLANÉTU</a
+      >
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.sk/faq"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=message-white.png}}"
+          alt="Pomoc a kontakt"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        POMOC</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.sk/faq/chcem-vratit-tovar/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Pravo 14-dni na vratenie tovaru"
+        />
+        14-DŇOVÉ VRÁTENIE TOVARU</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.sk/faq/ake-su-naklady-na-dopravu/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Dorucenie zdarmo od 50 €"
+        />
+        DORUČENIE ZADARMO OD 50 €</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a
+        href="https://8a.sk/faq/aka-je-dodacia-lehota/"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychle dorucenie"
+        />
+        RÝCHLE DORUČENIE</a
+      >
+    </li>
+    <li class="unique-selling-point">
+      <a href="tel:+421412304433" style="font-weight: bold; color: white">
+        <img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Zavolajte nám"
+        />
+        +421 41/ 230 44 33
+      </a>
+    </li>
+  </ul>
+</div>
+<style>
+  @media (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.sk/newsletter-sk" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">REGISTRUJTE SA NA ODBER NEWSLETTRA A ZÍSKAJTE ZĽAVOVÝ KUPÓN -10 € >> </span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              } else if (language.label === "Słoweński") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+		<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+      <a
+        href="https://8a.si/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>D</p>
+        <div id="hours">00</div>
+        <p>U</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>S</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+  <ul style="display: flex; justify-content: space-between">
+	  <li style="flex-grow: 0">
+      <a
+        href="https://8a.si/cms-8a-za-planet"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=eco-leaf.png}}"
+          alt="8a za planet"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        8A ZA PLANET</a
+      >
+    </li>
+      <li style="flex-grow: 0">
+          <a href="https://8a.si/faq" target="_self" style="font-weight: bold; color: white">
+              <img src="{{media url=message-white.png}}" alt="Pomoc in kontakt"
+                  style="height: 1rem; margin-right: 0.5rem" />
+                  POMOČ IN KONTAKT</a>
+      </li>
+      <li class="unique-selling-point">
+          <a href="https://8a.si/faq/vracilo-in-zamenjava" target="_self" style="font-weight: bold; color: white">
+
+              <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                  alt="14-dnevni rok za vracilo" />
+                  14-DNEVNI ROK ZA VRAČILO</a>
+      </li>
+      <li class="unique-selling-point">
+          <a href="https://8a.si/faq/posiljanje-in-dostava" target="_self" style="font-weight: bold; color: white">
+              <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                  alt="Brezplacna dostava" />
+                  BREZPLAČNA DOSTAVA OD 25 €</a>
+      </li>
+      <li class="unique-selling-point">
+          <a href="https://8a.si/faq/kaksen-je-cas-izvedbe-narocila/ " target="_self"
+              style="font-weight: bold; color: white">
+              <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                  alt="Hitra dostava" />
+                  HITRA DOSTAVA</a>
+      </li>
+  </ul>
+</div>
+<style>
+    @media (max-width: 768px) {
+        .hide-if-mobile {
+            display: none;
+        }
+    }
+
+    .header-top .hide-portrait {
+        background-color: black;
+    }
+
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.si/spletne-novice" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">NAROČITE SE NA SPLETNE NOVICE IN PRIDOBITE KUPON ZA POPUST -10 € >></span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              } else if (language.label === "Węgierski") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+		<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+      <a
+        href="https://8a.hu/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>N</p>
+        <div id="hours">00</div>
+        <p>Ó</p>
+        <div id="minutes">00</div>
+        <p>P</p>
+        <div id="seconds">00</div>
+        <p>M</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.hu/faq/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=message-white.png}}"
+          alt="Pomoc"
+          style="height: 1rem; margin-right: 0.5rem"
+        /> SÚGÓ ÉS KAPCSOLATFELVÉTEL</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/szeretnek-visszakuldeni-egy-termeket"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14-ti denní lhůta na vrácení zboží"
+        /> 14 NAPOS VISSZAKÜLDÉSI LEHETŐSÉG</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/mennyibe-kerul-a-csomagkuldes"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Doprava zdarma od 1000 Kč"
+        /> INGYEN HÁZHOZSZÁLLÍTÁS 19 900 FT FELETT</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/mennyi-a-megrendeles-teljesitesenek-atfutasi-ideje"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >  <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychlé dodání"
+        />
+         GYORS HÁZHOZSZÁLLÍTÁS</a
+      >
+    </li>
+  </ul>
+</div>
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.hu/hirlevel" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">IRATKOZZON FEL HÍRLEVELÜNKRE ÉS VÁSÁROLJON 3 500 FT KEDVEZMÉNYKÓDDAL! >> </span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              } else if (language.label === "Litewski") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+		<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+      <a
+        href="https://8a.hu/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>N</p>
+        <div id="hours">00</div>
+        <p>Ó</p>
+        <div id="minutes">00</div>
+        <p>P</p>
+        <div id="seconds">00</div>
+        <p>M</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a.hu/faq/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=message-white.png}}"
+          alt="Pomoc"
+          style="height: 1rem; margin-right: 0.5rem"
+        /> SÚGÓ ÉS KAPCSOLATFELVÉTEL</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/szeretnek-visszakuldeni-egy-termeket"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14-ti denní lhůta na vrácení zboží"
+        /> 14 NAPOS VISSZAKÜLDÉSI LEHETŐSÉG</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/mennyibe-kerul-a-csomagkuldes"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Doprava zdarma od 1000 Kč"
+        /> INGYEN HÁZHOZSZÁLLÍTÁS 19 900 FT FELETT</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a.hu/faq/mennyi-a-megrendeles-teljesitesenek-atfutasi-ideje"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >  <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychlé dodání"
+        />
+         GYORS HÁZHOZSZÁLLÍTÁS</a
+      >
+    </li>
+  </ul>
+</div>
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.hu/hirlevel" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">IRATKOZZON FEL HÍRLEVELÜNKRE ÉS VÁSÁROLJON 3 500 FT KEDVEZMÉNYKÓDDAL! >> </span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              } else if (language.label === "Niemiecki") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+		<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+      <a
+        href="https://8a.de/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>T</p>
+        <div id="hours">00</div>
+        <p>S</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>S</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+    <ul style="display: flex; justify-content: space-between">
+        <li style="flex-grow: 0">
+            <a href="/okologie-bei-8a" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=eco-leaf.png}}" alt="ÖKOLOGIE BEI 8A"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                ÖKOLOGIE BEI 8A</a>
+        </li>
+        <li style="flex-grow: 0">
+            <a href="/faq" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=message-white.png}}" alt="FAQ & HILFE"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                FAQ & HILFE</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/kann-ich-die-ware-zuruckgeben-wenn-sie-mir-nicht-gefallt-oder-nicht-passt/" target="_self" style="font-weight: bold; color: white">
+
+                <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="100 TAGE KOSTENLOSE RETOURE" />
+                100 TAGE KOSTENLOSE RETOURE</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="https://8a.de/faq/wie-viel-kostet-der-versand/" target="_self"
+                style="font-weight: bold; color: white">
+                <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="PORTOFREI AB € 50" />
+                PORTOFREI AB € 50</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/wann-wird-meine-bestellung-versandt/" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="SCHNELLER VERSAND" />
+                SCHNELLER VERSAND</a>
+        </li>
+        <li>
+      <a href="tel:+4978195633036" style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=phone-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rufen Sie unseren Kundenservice an"
+        />
+         +49 781 9563 30 36</a
+      >
+    </li> 
+    </ul>
+</div>
+
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.de/newsletter-de" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ABONNIERE DEN NEWSLETTER UND SICHERE DIR 10 € RABATTCODE >></span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              } else if (language.label === "Chorwacki") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a-shop.hr/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>D</p>
+        <div id="hours">00</div>
+        <p>V</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>S</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+    <ul style="display: flex; justify-content: space-between">
+        <li style="flex-grow: 0">
+            <a href="/cms-ekoloska-outdoor-trgovina" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=eco-leaf.png}}" alt="EKOLOŠKA OUTDOOR TRGOVINA"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                EKOLOŠKA OUTDOOR TRGOVINA</a>
+        </li>
+        <li style="flex-grow: 0">
+            <a href="/faq" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=message-white.png}}" alt="POMOĆ I KONTAKT"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                POMOĆ I KONTAKT</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/mogu-li-vratiti-proizvod-ako-mi-se-ne-svidja-ili-mi-ne-odgovara/" target="_self" style="font-weight: bold; color: white">
+
+                <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt=" 14 DANA ZA POVRAT" />
+                 14 DANA ZA POVRAT</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/koliki-je-trosak-dostave/" target="_self"
+                style="font-weight: bold; color: white">
+                <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="BESPLATNA DOSTAVA OD 50 €" />
+                BESPLATNA DOSTAVA OD 50 €</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/kada-ce-moja-narudzba-biti-poslana/" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="BRZA DOSTAVA" />
+                BRZA DOSTAVA</a>
+        </li>
+    </ul>
+</div>
+
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a-shop.hr/newsletter-hr" target="_self" style="color: white; text-transform: uppercase; font-weight: bold"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ČEKA TE KOD ZA 10 € – PREUZMI GA OVDJE >></span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              } else if (language.label === "Bułgarski") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+      <a
+        href="https://8a.bg/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+          >
+          ${translation}
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>Д</p>
+        <div id="hours">00</div>
+        <p>Ч</p>
+        <div id="minutes">00</div>
+        <p>M</p>
+        <div id="seconds">00</div>
+        <p>С</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+    <ul style="display: flex; justify-content: space-between">
+        <li style="flex-grow: 0">
+            <a href="/cms-ekologichen-magazin-za-vanshni-deynosti" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=eco-leaf.png}}" alt="ЕКО МАГАЗИН ЗА СПОРТ И ПРИРОДА"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                ЕКО МАГАЗИН ЗА СПОРТ И ПРИРОДА</a>
+        </li>
+        <li style="flex-grow: 0">
+            <a href="/faq" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=message-white.png}}" alt="ПОМОЩ И КОНТАКТ"
+                    style="height: 1rem; margin-right: 0.5rem" />
+                ПОМОЩ И КОНТАКТ</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/moga-li-da-varna-stoki-ako-ne-mi-haresvat-ili-ne-mi-pasvat/" target="_self" style="font-weight: bold; color: white">
+
+                <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt=" 14 ДНИ ПРАВО НА ВРЪЩАНЕ" />
+                 14 ДНИ ПРАВО НА ВРЪЩАНЕ</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/kakvi-sa-razhodite-za-izprashtane-na-porachka/" target="_self"
+                style="font-weight: bold; color: white">
+                <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="БЕЗПЛАТНА ДОСТАВКА НАД 99 лв" />
+                БЕЗПЛАТНА ДОСТАВКА НАД 99 лв.</a>
+        </li>
+        <li class="unique-selling-point">
+            <a href="/faq/koga-shte-bade-izpratena-moyata-porachka/" target="_self" style="font-weight: bold; color: white">
+                <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+                    alt="БЪРЗА ДОСТАВКА" />
+                БЪРЗА ДОСТАВКА</a>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .header-top .hide-portrait {
+    background-color: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hide-if-mobile {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 177px;
+    }
+  }
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  #countdown div {
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  // Ustaw w cudzysłowiu datę, do której odliczamy w takim formacie, w jakim jest poniżej. 
+  // Np. jeśli ma to być 10 maja, północ, to ustaw "May 10, 2023 23:59:59"
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.bg/byuletin" target="_self" style="color: white; text-transform: uppercase; font-weight: bold"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ЧАКА ТЕ КОД ЗА 20 ЛВ. - ВЗЕМИ ГО ТУК >></span></a>';
+    }
+  }, 1000);
+</scrip`+`t>`;
+              }
+            }
+          }
+        }
+
+        // Jezeli counter nie ma byc widoczny
+        if (counterVisible === false) {
+          for (const language of selectedLanguages) {
+            const outputField =
+              outputFields[
+                languages.findIndex((lang) => lang.id === language.id)
+              ];
+            if (language.id === "polski") {
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%"
+>
+  <ul style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center">
+      <a
+        href="https://8a.pl/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="font-size: 12px; text-transform: uppercase"
+          >
+          ${inputText}
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<div class="layout-wrapper">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/cms-ekologiczny-sklep-outdoor" target="_self"
+        ><img
+          src="{{media url=eko-sklep.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="8a dla planety"
+        />8A DLA PLANETY</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/chce-dokonac-zwrotu/" target="_self"
+        ><img
+          src="{{media url=zwroty-30-dni.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="100-dniowe prawo zwrotu"
+        />100-DNI NA ZWROT</a
+      >
+    </li>
+        <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/jaki-jest-czas-realizacji-zamowienia/" target="_self"
+        ><img
+          src="{{media url=clock.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Wysyłka w 24h"
+        />WYSYŁKA W 24H</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq/jaki-jest-koszt-wysylki/" target="_self"
+        ><img
+          src="{{media url=dostawa-darmowa.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Darmowa dostawa od 299 zł"
+        />DARMOWA DOSTAWA OD 299 ZŁ</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/8academy/" target="_self"
+        ><img
+          src="{{media url=blog-8academy.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="Górski blog 8academy"
+        />GÓRSKI BLOG 8ACADEMY</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.pl/faq" target="_self"
+        ><img
+          src="{{media url=pomoc-i-kontakt.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="FAQ"
+        />FAQ</a
+      >
+    </li>
+  </ul>
+</div>
+
+
+
+
+<style>
+  .header-newsletter-message:hover {
+    color: #b8b8b8;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 187px;
+    }
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  #countdown div {
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.pl/zapis-newsletter" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px">50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >></span></a>';
+    }
+  }, 1000);
+</scrip` + `t>`;
+            } else {
+              let prompt = `Tłumacz na język ${language.label}:`;
+
+              let translation = await translateText(
+                inputText,
+                prompt,
+                language.id,
+                apiKey
+              );
+              if (language.label === "Czeski") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<a
+href="https://8a.cz/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</span>
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a href="/cms-8a-pro-planetu" target="_self" style="font-weight: bold; color: white">
+<img src="{{media url=eco-leaf.png}}" alt="8A PRO PLANETU"
+style="height: 1rem; margin-right: 0.5rem" />
+8A PRO PLANETU</a>
+</li>
+<li style="flex-grow: 0">
+<a
+href="https://8a.cz/faq/"
+target="_self"
+style="font-weight: bold; color: white"
+><img
+src="{{media url=message-white.png}}"
+alt="Pomoc"
+style="height: 1rem; margin-right: 0.5rem"
+/>
+POMOC</a
+>
+</li>
+<li>
+<a
+href="https://8a.cz/faq/chci-vratit-zbozi/"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=return-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="14-ti denní lhůta na vrácení zboží"
+/>
+14 DNŮ NA VRÁCENÍ ZBOŽÍ</a
+>
+</li>
+<li>
+<a
+href="https://8a.cz/faq/jaka-je-cena-doruceni/"
+target="_self"
+style="font-weight: bold; color: white"
+><img
+src="{{media url=truck-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Doprava zdarma od 1000 Kč"
+/> DOPRAVA ZDARMA OD 1000 KČ</a
+>
+</li>
+<li>
+<a
+href="https://8a.cz/faq/jaka-je-doba-odeslani-objednavky/"
+target="_self"
+style="font-weight: bold; color: white"
+>  <img
+src="{{media url=parcel-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Rychlé dodání"
+/>
+RYCHLÉ DODÁNÍ</a
+>
+</li>
+<li>
+<a href="tel:+420381601400" style="font-weight: bold; color: white"
+><img
+src="{{media url=phone-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Zavolejte nám"
+/>
++420 381 601 400</a
+>
+</li> 
+</ul>
+</div>
+
+
+<style>
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.cz/odebirat-novinky" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold; text-transform: uppercase">PŘIHLASTE SE K ODBĚRU NOVINEK A ZÍSKEJTE SLEVOVÝ KUPÓN -250 KČ >></span></a>';
+}
+}, 1000);
+</scrip` + `t>`;
+} else if (language.label === "Rumuński") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<a
+href="https://8a.ro/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+<ul style="display: flex; justify-content: space-between">
+
+<li style="flex-grow: 0">
+<a href="/cms-8a-pentru-planeta" target="_self" style="font-weight: bold; color: white">
+<img src="{{media url=eco-leaf.png}}" alt="8A PENTRU PLANETĂ"
+style="height: 1rem; margin-right: 0.5rem" />
+8A PENTRU PLANETĂ</a>
+</li>
+<li style="flex-grow: 0">
+<a
+href="https://8a.ro/faq"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=message-white.png}}"
+alt="Ajutor și contact"
+style="height: 1rem; margin-right: 0.5rem"
+/>
+AJUTOR</a
+>
+</li>
+
+<li class="unique-selling-point">
+<a
+href="https://8a.ro/faq/vreau-sa-fac-un-retur"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=return-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="14 zile pentru returnare"
+/>
+14 ZILE RETUR</a
+>
+</li>
+<li class="unique-selling-point">
+<a
+href="https://8a.ro/faq/care-este-costul-transportului/"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=truck-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Transport gratuit"
+/>
+TRANSPORT GRATUIT PESTE 250 LEI</a
+>
+</li>
+<li class="unique-selling-point">
+<a
+href="https://8a.ro/faq/care-este-termenul-de-livrare/"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=parcel-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Expediere rapidă"
+/>
+EXPEDIERE RAPIDĂ</a
+>
+</li>
+<li>
+<a href="tel:+40371701420" style="font-weight: bold; color: white">
+<img
+src="{{media url=phone-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Sunați-ne"
+/>
++40 37 170 1420
+</a>
+</li>
+</ul>
+</div>
+
+
+
+<style>
+@media (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.ro/newsletter-ro" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ÎNSCRIEȚI-VĂ LA NEWSLETTER ȘI PRIMIȚI UN VOUCHER DE REDUCERE -50 LEI >></span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+} else if (language.label === "Słowacki") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<a
+href="https://8a.sk/${promoUrl}"
+target="_self"
+style="color: white"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a
+href="https://8a.sk/cms-8a-pre-nasu-planetu"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=eco-leaf.png}}"
+alt="8a pre planetu"
+style="height: 1rem; margin-right: 0.5rem"
+/>
+8A PRE PLANÉTU</a
+>
+</li>
+<li style="flex-grow: 0">
+<a
+href="https://8a.sk/faq"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=message-white.png}}"
+alt="Pomoc a kontakt"
+style="height: 1rem; margin-right: 0.5rem"
+/>
+POMOC</a
+>
+</li>
+<li class="unique-selling-point">
+<a
+href="https://8a.sk/faq/chcem-vratit-tovar/"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=return-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Pravo 14-dni na vratenie tovaru"
+/>
+14-DŇOVÉ VRÁTENIE TOVARU</a
+>
+</li>
+<li class="unique-selling-point">
+<a
+href="https://8a.sk/faq/ake-su-naklady-na-dopravu/"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=truck-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Dorucenie zdarmo od 50 €"
+/>
+DORUČENIE ZADARMO OD 50 €</a
+>
+</li>
+<li class="unique-selling-point">
+<a
+href="https://8a.sk/faq/aka-je-dodacia-lehota/"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=parcel-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Rychle dorucenie"
+/>
+RÝCHLE DORUČENIE</a
+>
+</li>
+<li class="unique-selling-point">
+<a href="tel:+421412304433" style="font-weight: bold; color: white">
+<img
+src="{{media url=phone-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Zavolajte nám"
+/>
++421 41/ 230 44 33
+</a>
+</li>
+</ul>
+</div>
+<style>
+@media (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.sk/newsletter-sk" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">REGISTRUJTE SA NA ODBER NEWSLETTRA A ZÍSKAJTE ZĽAVOVÝ KUPÓN -10 € >> </span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+} else if (language.label === "Słoweński") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+<a
+href="https://8a.si/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+<div class="layout-wrapper hide-if-mobile">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a
+href="https://8a.si/cms-8a-za-planet"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=eco-leaf.png}}"
+alt="8a za planet"
+style="height: 1rem; margin-right: 0.5rem"
+/>
+8A ZA PLANET</a
+>
+</li>
+<li style="flex-grow: 0">
+<a href="https://8a.si/faq" target="_self" style="font-weight: bold; color: white">
+<img src="{{media url=message-white.png}}" alt="Pomoc in kontakt"
+    style="height: 1rem; margin-right: 0.5rem" />
+    POMOČ IN KONTAKT</a>
+</li>
+<li class="unique-selling-point">
+<a href="https://8a.si/faq/vracilo-in-zamenjava" target="_self" style="font-weight: bold; color: white">
+
+<img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+    alt="14-dnevni rok za vracilo" />
+    14-DNEVNI ROK ZA VRAČILO</a>
+</li>
+<li class="unique-selling-point">
+<a href="https://8a.si/faq/posiljanje-in-dostava" target="_self" style="font-weight: bold; color: white">
+<img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+    alt="Brezplacna dostava" />
+    BREZPLAČNA DOSTAVA OD 25 €</a>
+</li>
+<li class="unique-selling-point">
+<a href="https://8a.si/faq/kaksen-je-cas-izvedbe-narocila/ " target="_self"
+style="font-weight: bold; color: white">
+<img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+    alt="Hitra dostava" />
+    HITRA DOSTAVA</a>
+</li>
+</ul>
+</div>
+<style>
+@media (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.si/spletne-novice" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">NAROČITE SE NA SPLETNE NOVICE IN PRIDOBITE KUPON ZA POPUST -10 € >></span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+} else if (language.label === "Węgierski") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+<a
+href="https://8a.hu/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a
+href="https://8a.hu/faq/"
+target="_self"
+style="font-weight: bold; color: white"
+><img
+src="{{media url=message-white.png}}"
+alt="Pomoc"
+style="height: 1rem; margin-right: 0.5rem"
+/> SÚGÓ ÉS KAPCSOLATFELVÉTEL</a
+>
+</li>
+<li>
+<a
+href="https://8a.hu/faq/szeretnek-visszakuldeni-egy-termeket"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=return-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="14-ti denní lhůta na vrácení zboží"
+/> 14 NAPOS VISSZAKÜLDÉSI LEHETŐSÉG</a
+>
+</li>
+<li>
+<a
+href="https://8a.hu/faq/mennyibe-kerul-a-csomagkuldes"
+target="_self"
+style="font-weight: bold; color: white"
+><img
+src="{{media url=truck-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Doprava zdarma od 1000 Kč"
+/> INGYEN HÁZHOZSZÁLLÍTÁS 19 900 FT FELETT</a
+>
+</li>
+<li>
+<a
+href="https://8a.hu/faq/mennyi-a-megrendeles-teljesitesenek-atfutasi-ideje"
+target="_self"
+style="font-weight: bold; color: white"
+>  <img
+src="{{media url=parcel-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Rychlé dodání"
+/>
+GYORS HÁZHOZSZÁLLÍTÁS</a
+>
+</li>
+</ul>
+</div>
+<style>
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.hu/hirlevel" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">IRATKOZZON FEL HÍRLEVELÜNKRE ÉS VÁSÁROLJON 3 500 FT KEDVEZMÉNYKÓDDAL! >> </span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+} else if (language.label === "Litewski") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+<a
+href="https://8a.hu/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile usp-wrapper">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a
+href="https://8a.hu/faq/"
+target="_self"
+style="font-weight: bold; color: white"
+><img
+src="{{media url=message-white.png}}"
+alt="Pomoc"
+style="height: 1rem; margin-right: 0.5rem"
+/> SÚGÓ ÉS KAPCSOLATFELVÉTEL</a
+>
+</li>
+<li>
+<a
+href="https://8a.hu/faq/szeretnek-visszakuldeni-egy-termeket"
+target="_self"
+style="font-weight: bold; color: white"
+>
+<img
+src="{{media url=return-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="14-ti denní lhůta na vrácení zboží"
+/> 14 NAPOS VISSZAKÜLDÉSI LEHETŐSÉG</a
+>
+</li>
+<li>
+<a
+href="https://8a.hu/faq/mennyibe-kerul-a-csomagkuldes"
+target="_self"
+style="font-weight: bold; color: white"
+><img
+src="{{media url=truck-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Doprava zdarma od 1000 Kč"
+/> INGYEN HÁZHOZSZÁLLÍTÁS 19 900 FT FELETT</a
+>
+</li>
+<li>
+<a
+href="https://8a.hu/faq/mennyi-a-megrendeles-teljesitesenek-atfutasi-ideje"
+target="_self"
+style="font-weight: bold; color: white"
+>  <img
+src="{{media url=parcel-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Rychlé dodání"
+/>
+GYORS HÁZHOZSZÁLLÍTÁS</a
+>
+</li>
+</ul>
+</div>
+<style>
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.hu/hirlevel" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">IRATKOZZON FEL HÍRLEVELÜNKRE ÉS VÁSÁROLJON 3 500 FT KEDVEZMÉNYKÓDDAL! >> </span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+} else if (language.label === "Niemiecki") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
+<a
+href="https://8a.de/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a href="/okologie-bei-8a" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=eco-leaf.png}}" alt="ÖKOLOGIE BEI 8A"
+      style="height: 1rem; margin-right: 0.5rem" />
+  ÖKOLOGIE BEI 8A</a>
+</li>
+<li style="flex-grow: 0">
+<a href="/faq" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=message-white.png}}" alt="FAQ & HILFE"
+      style="height: 1rem; margin-right: 0.5rem" />
+  FAQ & HILFE</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/kann-ich-die-ware-zuruckgeben-wenn-sie-mir-nicht-gefallt-oder-nicht-passt/" target="_self" style="font-weight: bold; color: white">
+
+  <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt="100 TAGE KOSTENLOSE RETOURE" />
+  100 TAGE KOSTENLOSE RETOURE</a>
+</li>
+<li class="unique-selling-point">
+<a href="https://8a.de/faq/wie-viel-kostet-der-versand/" target="_self"
+  style="font-weight: bold; color: white">
+  <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt="PORTOFREI AB € 50" />
+  PORTOFREI AB € 50</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/wann-wird-meine-bestellung-versandt/" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt="SCHNELLER VERSAND" />
+  SCHNELLER VERSAND</a>
+</li>
+<li>
+<a href="tel:+4978195633036" style="font-weight: bold; color: white"
+><img
+src="{{media url=phone-white.png}}"
+style="height: 1rem; margin-right: 0.5rem; color: white"
+alt="Rufen Sie unseren Kundenservice an"
+/>
++49 781 9563 30 36</a
+>
+</li> 
+</ul>
+</div>
+
+
+<style>
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.de/newsletter-de" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ABONNIERE DEN NEWSLETTER UND SICHERE DIR 10 € RABATTCODE >></span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+} else if (language.label === "Chorwacki") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<a
+href="https://8a-shop.hr/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a href="/cms-ekoloska-outdoor-trgovina" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=eco-leaf.png}}" alt="EKOLOŠKA OUTDOOR TRGOVINA"
+      style="height: 1rem; margin-right: 0.5rem" />
+  EKOLOŠKA OUTDOOR TRGOVINA</a>
+</li>
+<li style="flex-grow: 0">
+<a href="/faq" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=message-white.png}}" alt="POMOĆ I KONTAKT"
+      style="height: 1rem; margin-right: 0.5rem" />
+  POMOĆ I KONTAKT</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/mogu-li-vratiti-proizvod-ako-mi-se-ne-svidja-ili-mi-ne-odgovara/" target="_self" style="font-weight: bold; color: white">
+
+  <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt=" 14 DANA ZA POVRAT" />
+   14 DANA ZA POVRAT</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/koliki-je-trosak-dostave/" target="_self"
+  style="font-weight: bold; color: white">
+  <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt="BESPLATNA DOSTAVA OD 50 €" />
+  BESPLATNA DOSTAVA OD 50 €</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/kada-ce-moja-narudzba-biti-poslana/" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt="BRZA DOSTAVA" />
+  BRZA DOSTAVA</a>
+</li>
+</ul>
+</div>
+
+
+<style>
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a-shop.hr/newsletter-hr" target="_self" style="color: white; text-transform: uppercase; font-weight: bold"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ČEKA TE KOD ZA 10 € – PREUZMI GA OVDJE >></span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+} else if (language.label === "Bułgarski") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<a
+href="https://8a.bg/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper hide-if-mobile">
+<ul style="display: flex; justify-content: space-between">
+<li style="flex-grow: 0">
+<a href="/cms-ekologichen-magazin-za-vanshni-deynosti" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=eco-leaf.png}}" alt="ЕКО МАГАЗИН ЗА СПОРТ И ПРИРОДА"
+      style="height: 1rem; margin-right: 0.5rem" />
+  ЕКО МАГАЗИН ЗА СПОРТ И ПРИРОДА</a>
+</li>
+<li style="flex-grow: 0">
+<a href="/faq" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=message-white.png}}" alt="ПОМОЩ И КОНТАКТ"
+      style="height: 1rem; margin-right: 0.5rem" />
+  ПОМОЩ И КОНТАКТ</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/moga-li-da-varna-stoki-ako-ne-mi-haresvat-ili-ne-mi-pasvat/" target="_self" style="font-weight: bold; color: white">
+
+  <img src="{{media url=return-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt=" 14 ДНИ ПРАВО НА ВРЪЩАНЕ" />
+   14 ДНИ ПРАВО НА ВРЪЩАНЕ</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/kakvi-sa-razhodite-za-izprashtane-na-porachka/" target="_self"
+  style="font-weight: bold; color: white">
+  <img src="{{media url=truck-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt="БЕЗПЛАТНА ДОСТАВКА НАД 99 лв" />
+  БЕЗПЛАТНА ДОСТАВКА НАД 99 лв.</a>
+</li>
+<li class="unique-selling-point">
+<a href="/faq/koga-shte-bade-izpratena-moyata-porachka/" target="_self" style="font-weight: bold; color: white">
+  <img src="{{media url=parcel-white.png}}" style="height: 1rem; margin-right: 0.5rem; color: white"
+      alt="БЪРЗА ДОСТАВКА" />
+  БЪРЗА ДОСТАВКА</a>
+</li>
+</ul>
+</div>
+
+<style>
+.header-top .hide-portrait {
+background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Panton, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Panton, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+// Ustaw w cudzysłowiu datę, do której odliczamy w takim formacie, w jakim jest poniżej. 
+// Np. jeśli ma to być 10 maja, północ, to ustaw "May 10, 2023 23:59:59"
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+'<a href="https://8a.bg/byuletin" target="_self" style="color: white; text-transform: uppercase; font-weight: bold"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">ЧАКА ТЕ КОД ЗА 20 ЛВ. - ВЗЕМИ ГО ТУК >></span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+}
+            }
+          }
+        }
+      });
+
+      async function translateText(text, prompt, targetLanguage, apiKey) {
+        const apiUrl = `https://api.openai.com/v1/chat/completions`;
+        const headers = {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        };
+
+        const data = {
+          messages: [
+            { role: "system", content: `${prompt}` },
+            { role: "user", content: text },
+          ],
+          model: "gpt-3.5-turbo",
+        };
+
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        if (result.choices === undefined) {
+          return "ZŁY KLUCZ API!";
+        }
+        return result.choices[0].message.content;
+      }
+
+      // Obsługa kopiowania do schowka
+      const copyButtons = document.querySelectorAll(".copy-button");
+      copyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetId = button.getAttribute("data-target");
+          const targetField = document.getElementById(targetId);
+
+          targetField.select();
+          document.execCommand("copy");
+        });
+      });
+    </script>
+  </body>
+</html>
