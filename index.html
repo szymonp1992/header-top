@@ -2353,7 +2353,7 @@ top: 177px;
     <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
 		<!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
       <a
-        href="https://8a.hu/${promoUrl}"
+        href="https://8a-shop.lt/${promoUrl}"
         target="_self"
         style="color: ${fontColor}"
       >
@@ -2383,44 +2383,58 @@ top: 177px;
   <ul style="display: flex; justify-content: space-between">
     <li style="flex-grow: 0">
       <a
-        href="https://8a.hu/faq/"
+        href="https://8a-shop.lt/cms-8a-planetai"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=eco-leaf.png}}"
+          alt="8a planetos labui"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        8A PLANETOS LABUI</a
+      >
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a-shop.lt/faq"
         target="_self"
         style="font-weight: bold; color: white"
         ><img
           src="{{media url=message-white.png}}"
-          alt="Pomoc"
+          alt="PAGALBA IR KONTAKTAI"
           style="height: 1rem; margin-right: 0.5rem"
-        /> SÚGÓ ÉS KAPCSOLATFELVÉTEL</a
+        /> PAGALBA IR KONTAKTAI</a
       >
     </li>
     <li>
       <a
-        href="https://8a.hu/faq/szeretnek-visszakuldeni-egy-termeket"
+        href="https://8a-shop.lt/faq/noriu-grazinti/"
         target="_self"
         style="font-weight: bold; color: white"
         >
         <img
           src="{{media url=return-white.png}}"
           style="height: 1rem; margin-right: 0.5rem; color: white"
-          alt="14-ti denní lhůta na vrácení zboží"
-        /> 14 NAPOS VISSZAKÜLDÉSI LEHETŐSÉG</a
+          alt="14 DIENŲ GRĄŽINIMUI"
+        /> 14 DIENŲ GRĄŽINIMUI</a
       >
     </li>
     <li>
       <a
-        href="https://8a.hu/faq/mennyibe-kerul-a-csomagkuldes"
+        href="https://8a-shop.lt/faq/kokia-yra-siuntimo-kaina/"
         target="_self"
         style="font-weight: bold; color: white"
         ><img
           src="{{media url=truck-white.png}}"
           style="height: 1rem; margin-right: 0.5rem; color: white"
-          alt="Doprava zdarma od 1000 Kč"
-        /> INGYEN HÁZHOZSZÁLLÍTÁS 19 900 FT FELETT</a
+          alt="NEMOKAMAS PRISTATYMAS NUO 49 €"
+        /> NEMOKAMAS PRISTATYMAS NUO 49 €</a
       >
     </li>
     <li>
       <a
-        href="https://8a.hu/faq/mennyi-a-megrendeles-teljesitesenek-atfutasi-ideje"
+        href="https://8a-shop.lt/faq/koks-yra-uzsakymo-vykdymo-laikas/"
         target="_self"
         style="font-weight: bold; color: white"
         >  <img
@@ -2428,7 +2442,7 @@ top: 177px;
           style="height: 1rem; margin-right: 0.5rem; color: white"
           alt="Rychlé dodání"
         />
-         GYORS HÁZHOZSZÁLLÍTÁS</a
+         GREITAS PRISTATYMAS</a
       >
     </li>
   </ul>
@@ -2481,7 +2495,9 @@ top: 177px;
 
 
 <script>
-  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+  // Ustaw w cudzysłowiu datę, do której odliczamy w takim formacie, w jakim jest poniżej. 
+  // Np. jeśli ma to być 10 maja, północ, to ustaw "May 10, 2023 23:59:59"
+  var countDownDate = new Date("Dec 20, 2023 23:59:59").getTime();
 
   var x = setInterval(function () {
     var now = new Date().getTime();
@@ -2507,7 +2523,7 @@ top: 177px;
     if (distance < 0) {
       clearInterval(x);
       document.querySelector(".countdown-wrapper ul li").innerHTML =
-        '<a href="https://8a.hu/hirlevel" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">IRATKOZZON FEL HÍRLEVELÜNKRE ÉS VÁSÁROLJON 3 500 FT KEDVEZMÉNYKÓDDAL! >> </span></a>';
+        '<a href="https://8a-shop.lt/naujienlaiskis" target="_self" style="color: white; text-transform: uppercase; font-weight: bold"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">UŽSIPRENUMERUOKITE MŪSŲ NAUJIENLAIŠKĮ IR GAUKITE 10 € NUOLAIDOS KODĄ >> </span></a>';
     }
   }, 1000);
 </scrip`+`t>`;
@@ -3931,7 +3947,7 @@ style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; displa
 <li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
 <!-- W LINII 10. WSTAW URL, DO JAKIEGO MA PROWADZIĆ PASEK PROMO -->
 <a
-href="https://8a.hu/${promoUrl}"
+href="https://8a-shop.lt/${promoUrl}"
 target="_self"
 style="color: ${fontColor}"
 >
@@ -3948,58 +3964,72 @@ ${translation}
 
 
 <div class="layout-wrapper hide-if-mobile usp-wrapper">
-<ul style="display: flex; justify-content: space-between">
-<li style="flex-grow: 0">
-<a
-href="https://8a.hu/faq/"
-target="_self"
-style="font-weight: bold; color: white"
-><img
-src="{{media url=message-white.png}}"
-alt="Pomoc"
-style="height: 1rem; margin-right: 0.5rem"
-/> SÚGÓ ÉS KAPCSOLATFELVÉTEL</a
->
-</li>
-<li>
-<a
-href="https://8a.hu/faq/szeretnek-visszakuldeni-egy-termeket"
-target="_self"
-style="font-weight: bold; color: white"
->
-<img
-src="{{media url=return-white.png}}"
-style="height: 1rem; margin-right: 0.5rem; color: white"
-alt="14-ti denní lhůta na vrácení zboží"
-/> 14 NAPOS VISSZAKÜLDÉSI LEHETŐSÉG</a
->
-</li>
-<li>
-<a
-href="https://8a.hu/faq/mennyibe-kerul-a-csomagkuldes"
-target="_self"
-style="font-weight: bold; color: white"
-><img
-src="{{media url=truck-white.png}}"
-style="height: 1rem; margin-right: 0.5rem; color: white"
-alt="Doprava zdarma od 1000 Kč"
-/> INGYEN HÁZHOZSZÁLLÍTÁS 19 900 FT FELETT</a
->
-</li>
-<li>
-<a
-href="https://8a.hu/faq/mennyi-a-megrendeles-teljesitesenek-atfutasi-ideje"
-target="_self"
-style="font-weight: bold; color: white"
->  <img
-src="{{media url=parcel-white.png}}"
-style="height: 1rem; margin-right: 0.5rem; color: white"
-alt="Rychlé dodání"
-/>
-GYORS HÁZHOZSZÁLLÍTÁS</a
->
-</li>
-</ul>
+  <ul style="display: flex; justify-content: space-between">
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a-shop.lt/cms-8a-planetai"
+        target="_self"
+        style="font-weight: bold; color: white"
+      >
+        <img
+          src="{{media url=eco-leaf.png}}"
+          alt="8a planetos labui"
+          style="height: 1rem; margin-right: 0.5rem"
+        />
+        8A PLANETOS LABUI</a
+      >
+    </li>
+    <li style="flex-grow: 0">
+      <a
+        href="https://8a-shop.lt/faq"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=message-white.png}}"
+          alt="PAGALBA IR KONTAKTAI"
+          style="height: 1rem; margin-right: 0.5rem"
+        /> PAGALBA IR KONTAKTAI</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a-shop.lt/faq/noriu-grazinti/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >
+        <img
+          src="{{media url=return-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="14 DIENŲ GRĄŽINIMUI"
+        /> 14 DIENŲ GRĄŽINIMUI</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a-shop.lt/faq/kokia-yra-siuntimo-kaina/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        ><img
+          src="{{media url=truck-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="NEMOKAMAS PRISTATYMAS NUO 49 €"
+        /> NEMOKAMAS PRISTATYMAS NUO 49 €</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://8a-shop.lt/faq/koks-yra-uzsakymo-vykdymo-laikas/"
+        target="_self"
+        style="font-weight: bold; color: white"
+        >  <img
+          src="{{media url=parcel-white.png}}"
+          style="height: 1rem; margin-right: 0.5rem; color: white"
+          alt="Rychlé dodání"
+        />
+         GREITAS PRISTATYMAS</a
+      >
+    </li>
+  </ul>
 </div>
 <style>
 .header-top .hide-portrait {
@@ -4063,9 +4093,9 @@ var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 if (distance < 0) {
 clearInterval(x);
 document.querySelector(".countdown-wrapper ul li").innerHTML =
-'<a href="https://8a.hu/hirlevel" target="_self" style="color: white; text-transform: uppercase;"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">IRATKOZZON FEL HÍRLEVELÜNKRE ÉS VÁSÁROLJON 3 500 FT KEDVEZMÉNYKÓDDAL! >> </span></a>';
-}
-}, 1000);
+        '<a href="https://8a-shop.lt/naujienlaiskis" target="_self" style="color: white; text-transform: uppercase; font-weight: bold"><span class="header-newsletter-message" style="font-size: 12px; font-weight: bold">UŽSIPRENUMERUOKITE MŪSŲ NAUJIENLAIŠKĮ IR GAUKITE 10 € NUOLAIDOS KODĄ >> </span></a>';
+    }
+  }, 1000);
 </scrip`+`t>`;
 } else if (language.label === "Niemiecki") {
   outputField.value = `<div
