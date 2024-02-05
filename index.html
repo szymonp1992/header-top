@@ -252,14 +252,14 @@
   class="layout-wrapper countdown-wrapper"
   style="background-color: #c33619; max-width: 100%"
 >
-  <ul style="display: flex; justify-content: space-around">
+  <ul id="countdown-wrapper-message" style="display: flex; justify-content: space-around">
     <li style="margin: 0 auto; display: flex; justify-content: center">
       <a
         href="https://8a.pl/zapis-newsletter"
         target="_self"
         style="color: white"
       >
-        <span class="header-newsletter-message" style="font-size: 12px"
+        <span class="header-newsletter-message" style="text-transform: uppercase"
           > 50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >>
         </span>
       </a>
@@ -270,7 +270,7 @@
 
 
 
-<div class="layout-wrapper">
+<div class="layout-wrapper usp-bar">
   <ul style="display: flex; justify-content: space-between">
     <li style="margin: 0 auto">
       <a href="https://8a.pl/cms-ekologiczny-sklep-outdoor" target="_self"
@@ -333,8 +333,57 @@
 
 
 <style>
-  .header-newsletter-message:hover {
+
+#countdown-wrapper-message {
+min-height: 39px
+}
+
+  .header-newsletter-message:hover,
+  #countdown-wrapper-message li a {
     color: #b8b8b8;
+    text-decoration: none;
+  }
+
+  #countdown-wrapper-message li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #countdown-wrapper-message li a {
+    line-height: 2rem;
+    padding: 3px 0;
+  }
+
+  .header-newsletter-message {
+    font-size: 12px;
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  #countdown div {
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Panton, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Panton, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
   }
 
   @media screen and (min-width: 1024px) {
@@ -342,7 +391,52 @@
       top: 187px;
     }
   }
-
+  @media screen and (max-width: 1023px) {
+    .page-wrapper > .header-top > .hide-mobile,
+    .page-wrapper > .header-top > .hide-portrait {
+      display: block !important;
+    }
+    .countdown-wrapper {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #countdown {
+      margin-left: 0.5rem;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      text-align: center;
+    }
+    .usp-bar {
+      height: 0;
+    }
+    #countdown-wrapper-message {
+      padding-left: 0.3rem;
+      margin: 0;
+    }
+    #countdown-wrapper-message li a {
+      line-height: 1.2rem;
+      text-align: center;
+    }
+    .navigation .megamenu-submenu {
+      top: 143px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .countdown-wrapper {
+      height: fit-content;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      font-size: 10px;
+    }
+    #countdown div {
+      padding: 0.1rem;
+      font-size: 1rem;
+    }
+  }
 </styl`+`e>`
             }
             if (language.id === "czeski"){
@@ -1280,14 +1374,14 @@ top: 177px;
   class="layout-wrapper countdown-wrapper"
   style="background-color: ${headerBgColor}; max-width: 100%"
 >
-  <ul style="display: flex; justify-content: space-around">
+  <ul id="countdown-wrapper-message" style="display: flex; justify-content: space-around">
     <li style="margin: 0 auto; display: flex; justify-content: center">
       <a
         href="https://8a.pl/${promoUrl}"
         target="_self"
         style="color: ${fontColor}"
       >
-        <span class="header-newsletter-message" style="font-size: 12px; text-transform: uppercase"
+        <span class="header-newsletter-message" style="text-transform: uppercase"
           >
           ${inputText}
         </span>
@@ -1309,7 +1403,7 @@ top: 177px;
 
 
 
-<div class="layout-wrapper">
+<div class="layout-wrapper usp-bar">
   <ul style="display: flex; justify-content: space-between">
     <li style="margin: 0 auto">
       <a href="https://8a.pl/cms-ekologiczny-sklep-outdoor" target="_self"
@@ -1372,14 +1466,30 @@ top: 177px;
 
 
 <style>
-  .header-newsletter-message:hover {
+
+#countdown-wrapper-message {
+min-height: 39px
+}
+
+  .header-newsletter-message:hover,
+  #countdown-wrapper-message li a {
     color: #b8b8b8;
+    text-decoration: none;
   }
 
-  @media screen and (min-width: 1024px) {
-    .navigation .megamenu-submenu {
-      top: 187px;
-    }
+  #countdown-wrapper-message li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #countdown-wrapper-message li a {
+    line-height: 2rem;
+    padding: 3px 0;
+  }
+
+  .header-newsletter-message {
+    font-size: 12px;
   }
 
   #countdown {
@@ -1407,6 +1517,58 @@ top: 177px;
     font-weight: bold;
     margin-bottom: 0;
     letter-spacing: 0.11em;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 187px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .page-wrapper > .header-top > .hide-mobile,
+    .page-wrapper > .header-top > .hide-portrait {
+      display: block !important;
+    }
+    .countdown-wrapper {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #countdown {
+      margin-left: 0.5rem;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      text-align: center;
+    }
+    .usp-bar {
+      height: 0;
+    }
+    #countdown-wrapper-message {
+      padding-left: 0.3rem;
+      margin: 0;
+    }
+    #countdown-wrapper-message li a {
+      line-height: 1.2rem;
+      text-align: center;
+    }
+    .navigation .megamenu-submenu {
+      top: 143px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .countdown-wrapper {
+      height: fit-content;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      font-size: 10px;
+    }
+    #countdown div {
+      padding: 0.1rem;
+      font-size: 1rem;
+    }
   }
 </style>
 
@@ -1440,7 +1602,7 @@ top: 177px;
     if (distance < 0) {
       clearInterval(x);
       document.querySelector(".countdown-wrapper ul li").innerHTML =
-        '<a href="https://8a.pl/zapis-newsletter" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px">50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >></span></a>';
+        '<a href="https://8a.pl/zapis-newsletter" target="_self" style="color: white; font-weight: 800"><span class="header-newsletter-message" style="font-size: 12px; font-family: Panton,arial,sans-serif; font-weight: 800">50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >></span></a>';
     }
   }, 1000);
 </scrip` + `t>`;
@@ -3006,14 +3168,14 @@ top: 177px;
   class="layout-wrapper countdown-wrapper"
   style="background-color: ${headerBgColor}; max-width: 100%"
 >
-  <ul style="display: flex; justify-content: space-around">
+  <ul id="countdown-wrapper-message" style="display: flex; justify-content: space-around">
     <li style="margin: 0 auto; display: flex; justify-content: center">
       <a
         href="https://8a.pl/${promoUrl}"
         target="_self"
         style="color: ${fontColor}"
       >
-        <span class="header-newsletter-message" style="font-size: 12px; text-transform: uppercase"
+        <span class="header-newsletter-message" style="text-transform: uppercase"
           >
           ${inputText}
         </span>
@@ -3025,7 +3187,7 @@ top: 177px;
 
 
 
-<div class="layout-wrapper">
+<div class="layout-wrapper usp-bar">
   <ul style="display: flex; justify-content: space-between">
     <li style="margin: 0 auto">
       <a href="https://8a.pl/cms-ekologiczny-sklep-outdoor" target="_self"
@@ -3088,14 +3250,30 @@ top: 177px;
 
 
 <style>
-  .header-newsletter-message:hover {
+
+#countdown-wrapper-message {
+min-height: 39px
+}
+
+  .header-newsletter-message:hover,
+  #countdown-wrapper-message li a {
     color: #b8b8b8;
+    text-decoration: none;
   }
 
-  @media screen and (min-width: 1024px) {
-    .navigation .megamenu-submenu {
-      top: 187px;
-    }
+  #countdown-wrapper-message li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #countdown-wrapper-message li a {
+    line-height: 2rem;
+    padding: 3px 0;
+  }
+
+  .header-newsletter-message {
+    font-size: 12px;
   }
 
   #countdown {
@@ -3124,6 +3302,58 @@ top: 177px;
     margin-bottom: 0;
     letter-spacing: 0.11em;
   }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 187px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .page-wrapper > .header-top > .hide-mobile,
+    .page-wrapper > .header-top > .hide-portrait {
+      display: block !important;
+    }
+    .countdown-wrapper {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #countdown {
+      margin-left: 0.5rem;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      text-align: center;
+    }
+    .usp-bar {
+      height: 0;
+    }
+    #countdown-wrapper-message {
+      padding-left: 0.3rem;
+      margin: 0;
+    }
+    #countdown-wrapper-message li a {
+      line-height: 1.2rem;
+      text-align: center;
+    }
+    .navigation .megamenu-submenu {
+      top: 143px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .countdown-wrapper {
+      height: fit-content;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      font-size: 10px;
+    }
+    #countdown div {
+      padding: 0.1rem;
+      font-size: 1rem;
+    }
+  }
 </style>
 
 
@@ -3144,7 +3374,7 @@ top: 177px;
     if (distance < 0) {
       clearInterval(x);
       document.querySelector(".countdown-wrapper ul li").innerHTML =
-        '<a href="https://8a.pl/zapis-newsletter" target="_self" style="color: white"><span class="header-newsletter-message" style="font-size: 12px">50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >></span></a>';
+        '<a href="https://8a.pl/zapis-newsletter" target="_self" style="color: white; font-weight: 800"><span class="header-newsletter-message" style="font-size: 12px; font-family: Panton,arial,sans-serif; font-weight: 800">50 ZŁ EXTRA ZNIŻKI DLA CIEBIE! ODBIERZ JĄ TUTAJ >></span></a>';
     }
   }, 1000);
 </scrip` + `t>`;
