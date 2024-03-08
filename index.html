@@ -2661,7 +2661,7 @@ top: 177px;
 <script>
   // Ustaw w cudzysłowiu datę, do której odliczamy w takim formacie, w jakim jest poniżej. 
   // Np. jeśli ma to być 10 maja, północ, to ustaw "May 10, 2023 23:59:59"
-  var countDownDate = new Date("Dec 20, 2023 23:59:59").getTime();
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
 
   var x = setInterval(function () {
     var now = new Date().getTime();
