@@ -59,6 +59,9 @@
       <label>
         <input type="checkbox" id="translateBulgarian" checked /> Bułgarski
       </label>
+      <label>
+        <input type="checkbox" id="translateUkrainian" checked /> Ukraiński
+      </label>
     </div>
 
     
@@ -232,6 +235,11 @@
             id: "bułgarski",
             checkboxId: "translateBulgarian",
             label: "Bułgarski",
+          },
+          {
+            id: "ukraiński",
+            checkboxId: "translateUkrainian",
+            label: "Ukraiński",
           },
         ];
 
@@ -1330,6 +1338,180 @@ top: 177px;
   @media screen and (min-width: 1024px) {
     .navigation .megamenu-submenu {
       top: 177px;
+    }
+  }
+</styl`+`e>`
+            } if (language.id === "ukraiński"){
+              outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: #c33619; max-width: 100%"
+>
+  <ul id="countdown-wrapper-message" style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center">
+      <a
+        href="https://8a.ua/rozsilka"
+        target="_self"
+        style="color: white"
+      >
+        <span class="header-newsletter-message" style="text-transform: uppercase; font-weight: bold"
+          > 500 ГРН ДОДАТКОВОЇ ЗНИЖКИ ДЛЯ ВАС! ЗАБРАТИ ТУТ >>
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<div class="layout-wrapper usp-bar">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/chy-mozhu-ia-povernuty-tovar-iakshcho-vin-meni-ne-spodobavsia-abo-ne-pidiishov/" target="_self"
+        ><img
+          src="{{media url=zwroty-30-dni.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="30 ДНІВ НА ПОВЕРНЕННЯ"
+        />30 ДНІВ НА ПОВЕРНЕННЯ</a
+      >
+    </li>
+        <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/koly-moie-zamovlennia-bude-vidpravleno/" target="_self"
+        ><img
+          src="{{media url=clock.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="ВІДПРАВКА ПРОТЯГОМ 24 ГОДИН"
+        />ВІДПРАВКА ПРОТЯГОМ 24 ГОДИН</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/yaka-vartis-dostavky/" target="_self"
+        ><img
+          src="{{media url=dostawa-darmowa.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="БЕЗПЛАТНА ДОСТАВКА ВІД 2500 грн"
+        />БЕЗПЛАТНА ДОСТАВКА ВІД 2500 грн</a
+      >
+    </li>
+	<li style="margin: 0 auto">
+      <a href="https://8a.pl/faq" target="_self"
+        ><img
+          src="{{media url=pomoc-i-kontakt.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="ДОПОМОГА ТА КОНТАКТ"
+        />ДОПОМОГА ТА КОНТАКТ</a
+      >
+    </li>
+  </ul>
+</div>
+
+
+
+
+<style>
+
+#countdown-wrapper-message {
+min-height: 39px
+}
+
+  .header-newsletter-message:hover,
+  #countdown-wrapper-message li a {
+    color: #b8b8b8;
+    text-decoration: none;
+  }
+
+  #countdown-wrapper-message li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #countdown-wrapper-message li a {
+    line-height: 2rem;
+    padding: 3px 0;
+  }
+
+  .header-newsletter-message {
+    font-size: 12px;
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  #countdown div {
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Noto Sans, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Noto Sans, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 187px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .page-wrapper > .header-top > .hide-mobile,
+    .page-wrapper > .header-top > .hide-portrait {
+      display: block !important;
+    }
+    .countdown-wrapper {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #countdown {
+      margin-left: 0.5rem;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      text-align: center;
+    }
+    .usp-bar {
+      display: none;
+      height: 0;
+    }
+    #countdown-wrapper-message {
+      padding-left: 0.3rem;
+      margin: 0;
+    }
+    #countdown-wrapper-message li a {
+      line-height: 1.2rem;
+      text-align: center;
+    }
+    .navigation .megamenu-submenu {
+      top: 143px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .countdown-wrapper {
+      height: fit-content;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      font-size: 10px;
+    }
+    #countdown div {
+      padding: 0.1rem;
+      font-size: 1rem;
     }
   }
 </styl`+`e>`
@@ -3153,6 +3335,226 @@ top: 177px;
     }
   }, 1000);
 </scrip`+`t>`;
+              } else if (language.label === "Ukraiński") {
+                outputField.value = `<div
+  class="layout-wrapper countdown-wrapper"
+  style="background-color: ${headerBgColor}; max-width: 100%"
+>
+  <ul id="countdown-wrapper-message" style="display: flex; justify-content: space-around">
+    <li style="margin: 0 auto; display: flex; justify-content: center">
+      <a
+        href="https://8a.ua/${promoUrl}"
+        target="_self"
+        style="color: ${fontColor}"
+      >
+        <span class="header-newsletter-message" style="text-transform: uppercase; font-weight: bold; font-weight: bold"
+          >
+          ${inputText}
+        </span>
+      </a>
+      <div id="countdown">
+        <div id="days">00</div>
+        <p>Д</p>
+        <div id="hours">00</div>
+        <p>Г</p>
+        <div id="minutes">00</div>
+        <p>Хв</p>
+        <div id="seconds">00</div>
+        <p>С</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+<div class="layout-wrapper usp-bar">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/chy-mozhu-ia-povernuty-tovar-iakshcho-vin-meni-ne-spodobavsia-abo-ne-pidiishov/" target="_self"
+        ><img
+          src="{{media url=zwroty-30-dni.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="30 ДНІВ НА ПОВЕРНЕННЯ"
+        />30 ДНІВ НА ПОВЕРНЕННЯ</a
+      >
+    </li>
+        <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/koly-moie-zamovlennia-bude-vidpravleno/" target="_self"
+        ><img
+          src="{{media url=clock.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="ВІДПРАВКА ПРОТЯГОМ 24 ГОДИН"
+        />ВІДПРАВКА ПРОТЯГОМ 24 ГОДИН</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/yaka-vartis-dostavky/" target="_self"
+        ><img
+          src="{{media url=dostawa-darmowa.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="БЕЗПЛАТНА ДОСТАВКА ВІД 2500 грн"
+        />БЕЗПЛАТНА ДОСТАВКА ВІД 2500 грн</a
+      >
+    </li>
+	<li style="margin: 0 auto">
+      <a href="https://8a.pl/faq" target="_self"
+        ><img
+          src="{{media url=pomoc-i-kontakt.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="ДОПОМОГА ТА КОНТАКТ"
+        />ДОПОМОГА ТА КОНТАКТ</a
+      >
+    </li>
+  </ul>
+</div>
+
+
+
+
+<style>
+
+#countdown-wrapper-message {
+min-height: 39px
+}
+
+  .header-newsletter-message:hover,
+  #countdown-wrapper-message li a {
+    color: #b8b8b8;
+    text-decoration: none;
+  }
+
+  #countdown-wrapper-message li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #countdown-wrapper-message li a {
+    line-height: 2rem;
+    padding: 3px 0;
+  }
+
+  .header-newsletter-message {
+    font-size: 12px;
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  #countdown div {
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Noto Sans, Arial, sans-serif;
+  }
+
+  #countdown p {
+    font-family: Noto Sans, Arial, sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 0.11em;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .navigation .megamenu-submenu {
+      top: 187px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .page-wrapper > .header-top > .hide-mobile,
+    .page-wrapper > .header-top > .hide-portrait {
+      display: block !important;
+    }
+    .countdown-wrapper {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #countdown {
+      margin-left: 0.5rem;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      text-align: center;
+    }
+    .usp-bar {
+      display: none;
+      height: 0;
+    }
+    #countdown-wrapper-message {
+      padding-left: 0.3rem;
+      margin: 0;
+    }
+    #countdown-wrapper-message li a {
+      line-height: 1.2rem;
+      text-align: center;
+    }
+    .navigation .megamenu-submenu {
+      top: 143px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .countdown-wrapper {
+      height: fit-content;
+    }
+    .header-newsletter-message,
+    #countdown p {
+      font-size: 10px;
+    }
+    #countdown div {
+      padding: 0.1rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+
+
+
+<script>
+  var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("days").innerHTML = days
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("hours").innerHTML = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").innerHTML = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").innerHTML = seconds
+      .toString()
+      .padStart(2, "0");
+    if (distance < 0) {
+      clearInterval(x);
+      document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.ua/rozsilka" target="_self" style="color: white; font-weight: 800"><span class="header-newsletter-message" style="font-size: 12px; font-family: Noto Sans,arial,sans-serif; font-weight: 800">500 ГРН ДОДАТКОВОЇ ЗНИЖКИ ДЛЯ ВАС! ЗАБРАТИ ТУТ >></span></a>';
+    }
+  }, 1000);
+</scrip` + `t>`;
               }
             }
           }
@@ -4726,8 +5128,141 @@ document.querySelector(".countdown-wrapper ul li").innerHTML =
 }
 }, 1000);
 </scrip`+`t>`;
+} else if (language.label === "Ukraiński") {
+  outputField.value = `<div
+class="layout-wrapper countdown-wrapper"
+style="background-color: ${headerBgColor}; max-width: 100%; height: 40px; display: flex; justify-content: center; text-align: center"
+>
+<ul style="display: flex; justify-content: space-around">
+<li style="margin: 0 auto; display: flex; justify-content: center; align-items: center;">
+<a
+href="https://8a.ua/${promoUrl}"
+target="_self"
+style="color: ${fontColor}"
+>
+<span class="header-newsletter-message" style="font-size: 1rem; font-weight: bold; text-transform: uppercase"
+>
+${translation}
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+<div class="layout-wrapper usp-bar">
+  <ul style="display: flex; justify-content: space-between">
+    <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/chy-mozhu-ia-povernuty-tovar-iakshcho-vin-meni-ne-spodobavsia-abo-ne-pidiishov/" target="_self"
+        ><img
+          src="{{media url=zwroty-30-dni.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="30 ДНІВ НА ПОВЕРНЕННЯ"
+        />30 ДНІВ НА ПОВЕРНЕННЯ</a
+      >
+    </li>
+        <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/koly-moie-zamovlennia-bude-vidpravleno/" target="_self"
+        ><img
+          src="{{media url=clock.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="ВІДПРАВКА ПРОТЯГОМ 24 ГОДИН"
+        />ВІДПРАВКА ПРОТЯГОМ 24 ГОДИН</a
+      >
+    </li>
+    <li style="margin: 0 auto">
+      <a href="https://8a.ua/faq/yaka-vartis-dostavky/" target="_self"
+        ><img
+          src="{{media url=dostawa-darmowa.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="БЕЗПЛАТНА ДОСТАВКА ВІД 2500 грн"
+        />БЕЗПЛАТНА ДОСТАВКА ВІД 2500 грн</a
+      >
+    </li>
+	<li style="margin: 0 auto">
+      <a href="https://8a.pl/faq" target="_self"
+        ><img
+          src="{{media url=pomoc-i-kontakt.png}}"
+          style="height: 1rem; margin-right: 0.5rem"
+          alt="ДОПОМОГА ТА КОНТАКТ"
+        />ДОПОМОГА ТА КОНТАКТ</a
+      >
+    </li>
+  </ul>
+</div>
+
+<style>
+.header-top .hide-portrait {
+background-color: black;
 }
-            }
+
+@media screen and (max-width: 768px) {
+.hide-if-mobile {
+display: none;
+}
+}
+@media screen and (min-width: 1024px) {
+.navigation .megamenu-submenu {
+top: 177px;
+}
+}
+
+#countdown {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 0.5rem;
+}
+
+#countdown div {
+font-size: 1rem;
+padding: 0 0.25rem;
+margin: 0 0.25rem;
+background-color: #333;
+color: #fff;
+border-radius: 5px;
+font-weight: bold;
+font-family: Noto Sans, Arial, sans-serif;
+}
+
+#countdown p {
+font-family: Noto Sans, Arial, sans-serif;
+color: white;
+font-size: 12px;
+font-weight: bold;
+margin-bottom: 0;
+letter-spacing: 0.11em;
+}
+</style>
+
+
+
+
+<script>
+// Ustaw w cudzysłowiu datę, do której odliczamy w takim formacie, w jakim jest poniżej. 
+// Np. jeśli ma to być 10 maja, północ, to ustaw "May 10, 2023 23:59:59"
+var countDownDate = new Date("${counterDate} ${counterHour}").getTime();
+
+var x = setInterval(function () {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+if (distance < 0) {
+clearInterval(x);
+document.querySelector(".countdown-wrapper ul li").innerHTML =
+        '<a href="https://8a.ua/rozsilka" target="_self" style="color: white; font-weight: 800"><span class="header-newsletter-message" style="font-size: 12px; font-family: Noto Sans,arial,sans-serif; font-weight: 800">500 ГРН ДОДАТКОВОЇ ЗНИЖКИ ДЛЯ ВАС! ЗАБРАТИ ТУТ >></span></a>';
+}
+}, 1000);
+</scrip`+`t>`;
+}
+            } 
           }
         }
       });
